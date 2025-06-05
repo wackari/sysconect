@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sysconect - Soluciones IT</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      color: #222;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: #222;
+      border-radius: 3px;
+      margin-right: 6px;
+    }
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #2563eb;
+    }
+    .quote-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .quote-btn:hover {
+      background: #1d4ed8;
+    }
+    .hero {
+      margin: 32px auto 0 auto;
+      max-width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.7);
+    }
+    .hero-content {
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 40px;
+      color: #fff;
+      background: linear-gradient(90deg, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content h1 {
+      font-size: 2.3rem;
+      font-weight: bold;
+      margin: 0 0 12px 0;
+      line-height: 1.1;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+    .hero-content button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero-content button:hover {
+      background: #1d4ed8;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 16px 0 16px;
+    }
+    h2 {
+      margin-top: 40px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 18px 16px;
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 260px;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .service-card strong {
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+    .service-card span {
+      font-size: 0.97rem;
+      color: #555;
+    }
+    .service-card i {
+      font-size: 1.3rem;
+      color: #2563eb;
+      margin-bottom: 4px;
+    }
+    .projects {
+      display: flex;
+      gap: 18px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+      flex: 1 1 240px;
+      min-width: 240px;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .project-card img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+    .project-card .project-info {
+      padding: 12px 14px 16px 14px;
+    }
+    .project-card strong {
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+      display: block;
+    }
+    .project-card span {
+      font-size: 0.97rem;
+      color: #555;
+    }
+    .contact-form {
+      margin-top: 24px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+      padding: 24px 18px 18px 18px;
+      max-width: 500px;
+    }
+    .contact-form label {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+      display: block;
+      color: #222;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      font-size: 1rem;
+      background: #f1f5f9;
+      resize: none;
+    }
+    .contact-form button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: #1d4ed8;
+    }
+    .contact-info {
+      margin-top: 18px;
+      font-size: 0.98rem;
+      color: #444;
+    }
+    footer {
+      margin-top: 48px;
+      padding: 24px 0 16px 0;
+      text-align: center;
+      color: #888;
+      font-size: 0.97rem;
+      border-top: 1px solid #e5e7eb;
+      background: #f8fafc;
+    }
+    .footer-links {
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 18px;
+      font-size: 0.98rem;
+    }
+    @media (max-width: 900px) {
+      .hero, main {
+        max-width: 100%;
+      }
+      .services, .projects {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .project-card, .service-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Sysconect</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Servicios</a>
+
+     
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Oficina moderna">
+    <div class="hero-content">
+      <h1>Empowering Your Business with<br>Innovative IT Solutions</h1>
+      <p>Sysconect ofrece servicios IT a medida para mejorar tus operaciones empresariales, asegurando seguridad, escalabilidad y eficiencia.</p>
+      <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explora nuestros servicios</button>
+    </div>
+  </section>
+
+  <main>
+    <h2 id="about">Sobre Sysconect</h2>
+    <p>
+      Sysconect es un proveedor líder de soluciones IT dedicado a ayudar a las empresas a prosperar en la era digital. Con un enfoque en la innovación y la satisfacción del cliente, ofrecemos una suite integral de servicios diseñados para satisfacer las necesidades de las empresas modernas. Nuestro equipo de expertos utiliza tecnologías de vanguardia y mejores prácticas para entregar soluciones IT seguras, escalables y eficientes.
+    </p>
+
+    <h2 id="services">Nuestros Servicios</h2>
+    <div class="services">
+      <div class="service-card">
+        <i>💼</i>
+        <strong>IT Consulting</strong>
+        <span>Orientación estratégica en IT para alinear la tecnología con tus objetivos de negocio.</span>
+      </div>
+      <div class="service-card">
+        <i>🔒</i>
+        <strong>Security Audits</strong>
+        <span>Evaluaciones de seguridad para proteger tus activos digitales.</span>
+      </div>
+      <div class="service-card">
+        <i>☁️</i>
+        <strong>Cloud Infrastructure with Azure</strong>
+        <span>Soluciones escalables y fiables en la nube, impulsadas por Azure.</span>
+      </div>
+      <div class="service-card">
+        <i>🔗</i>
+        <strong>Microsoft 365 Implementation</strong>
+        <span>Integración de Microsoft 365 para mayor productividad.</span>
+      </div>
+      <div class="service-card">
+        <i>🛠️</i>
+        <strong>System Development and Integration</strong>
+        <span>Desarrollo e integración de sistemas personalizados para un rendimiento óptimo.</span>
+      </div>
+      <div class="service-card">
+        <i>📞</i>
+        <strong>Technical Support</strong>
+        <span>Soporte técnico ágil para asegurar operaciones sin problemas.</span>
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Términos de Servicio</a>
+    </div>
+    © 2024 Sysconect. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
